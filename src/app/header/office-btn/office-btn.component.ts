@@ -8,11 +8,9 @@ import { Component, input, output } from '@angular/core';
 })
 export class OfficeBtnComponent {
 
-  label=input('')
+  label=input()
   btnClicked =output();
-  // handelClick(){
-  //   console.log(' clicked');
-  // }
+
 
 handelClicked(){
   console.log('Clicked from the child ');

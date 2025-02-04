@@ -1,1 +1,22 @@
-git 
+<div class="w-fit rounded overflow-hidden shadow-lg m-10 p-5 ">
+    <img class="w- h-52" [src]="product().image"  alt="Sunset in the mountains">
+    <div class="px-6 py-4">
+      <p class="text-gray-700 text-base">
+        {{product().title}} 
+      </p>
+    </div>
+    <div class="px-6 pt-4 pb-2">
+        <span>
+            @if (product().stock) {
+                <span class="inline-block  rounded-full px-3 py-1 text-sm font-semibold text-green-400 mr-2 mb-2">{{product().stock}} left</span>
+            }@else {
+                <span class="inline-block  rounded-full px-3 py-1 text-sm font-semibold text-red-400 mr-2 mb-2">Out of stock</span>
+            }
+        </span>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{product().price}} $</span>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{product().stock}}</span>
+      <app-office-btn label=" Add to cart"   class="block" (btnClicked)="CartService.addToCart(product())">
+       
+      </app-office-btn>
+    </div>
+  </div>
