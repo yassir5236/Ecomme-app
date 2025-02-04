@@ -1,5 +1,8 @@
+<div class="flex">
+
+
 @for (product of CartService.cart(); track CartService.cart()) {
-    <div class="w-64 bg-white rounded-2xl overflow-hidden shadow-xl m-5 p-5 transition-transform transform hover:scale-105">
+    <div class="w-64 bg-white  rounded-2xl overflow-hidden shadow-xl m-5 p-5 transition-transform transform hover:scale-105">
       <img class="w-full h-52 object-cover rounded-lg" [src]="product.image" alt="{{ product.title }}" />
     
       <div class="mt-4 text-center">
@@ -23,4 +26,6 @@
       </div>
     </div>
     }
+</div>
+    <app-total-btn></app-total-btn>
     
