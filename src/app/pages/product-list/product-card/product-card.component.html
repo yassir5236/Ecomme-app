@@ -1,22 +1,33 @@
-<div class="w-fit rounded overflow-hidden shadow-lg m-10 p-5 ">
-    <img class="w- h-52" [src]="product().image"  alt="Sunset in the mountains">
-    <div class="px-6 py-4">
-      <p class="text-gray-700 text-base">
-        {{product().title}} 
-      </p>
+<div class="w-64 bg-white rounded-2xl shadow-lg m-5 p-5 transition-transform transform hover:scale-105">
+    <!-- Product Image -->
+    <img class="w-full h-52 object-cover rounded-lg" [src]="product().image" alt="{{ product().title }}" />
+  
+    <!-- Product Details -->
+    <div class="mt-4 text-center">
+      <h3 class="text-lg font-semibold text-gray-800">{{ product().title }}</h3>
     </div>
-    <div class="px-6 pt-4 pb-2">
-        <span>
-            @if (product().stock) {
-                <span class="inline-block  rounded-full px-3 py-1 text-sm font-semibold text-green-400 mr-2 mb-2">{{product().stock}} left</span>
-            }@else {
-                <span class="inline-block  rounded-full px-3 py-1 text-sm font-semibold text-red-400 mr-2 mb-2">Out of stock</span>
-            }
+  
+    <!-- Stock & Price -->
+    <div class="flex justify-between items-center mt-4 px-4">
+      <span class="text-lg font-bold text-green-600">${{ product().price }}</span>
+      @if (product().stock) {
+        <span class="text-xs text-green-600 bg-green-100 px-3 py-1 rounded-full font-medium">
+          {{ product().stock }} left
         </span>
-      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{product().price}} $</span>
-      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{product().stock}}</span>
-      <app-office-btn label=" Add to cart"   class="block" (btnClicked)="CartService.addToCart(product())">
-       
+      } @else {
+        <span class="text-xs text-red-500 bg-red-100 px-3 py-1 rounded-full font-medium">
+          Out of stock
+        </span>
+      }
+    </div>
+  
+    <!-- Add to Cart Button -->
+    <div class="mt-5">
+      <app-office-btn 
+        label="Add to Cart"
+        class="w-full  text-gray-900 font-medium py-2 rounded-lg  "
+        (btnClicked)="CartService.addToCart(product())">
       </app-office-btn>
     </div>
   </div>
+  
